@@ -5,6 +5,7 @@ using Labs2024_Domain.Models;
 using Labs2024_Infrastructure.Repositories;
 using Moq;
 using NUnit.Framework;
+using NUnit.Framework.Legacy;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -50,7 +51,7 @@ namespace Labs2024_UnitTests.Services
 
             // Assert
             //Assert.AreEqual(2, result.Count());
-            Assert.Equals(2, result.Count());
+            ClassicAssert.AreEqual(2, result.Count());
         }
 
         [Test]
@@ -65,7 +66,7 @@ namespace Labs2024_UnitTests.Services
 
             // Assert
             //Assert.AreEqual("Toyota", result.Brand);
-            Assert.Equals("Toyota", result.Brand);
+            ClassicAssert.AreEqual("Toyota", result.Brand);
         }
 
         [Test]

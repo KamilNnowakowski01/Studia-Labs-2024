@@ -1,3 +1,5 @@
+using NUnit.Framework.Legacy;
+
 namespace Labs2024_UnitTests
 {
     public class Tests
@@ -6,11 +8,17 @@ namespace Labs2024_UnitTests
         public void Setup()
         {
         }
-
         [Test]
-        public void Test1()
+        public void Addition_TwoPlusTwo_ReturnsFour()
         {
-            Assert.Pass();
+            // Arrange
+            int number1 = 2;
+            int number2 = 2;
+
+            // Act
+            int result = number1 + number2;
+            // Assert
+            ClassicAssert.AreEqual(4, result);
         }
     }
 }
