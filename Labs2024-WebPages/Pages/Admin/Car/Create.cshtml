@@ -1,0 +1,32 @@
+﻿@page
+@model Labs2024_WebPages.Pages.Admin.Car.CreateModel
+
+<h2>Create Car</h2>
+
+<form method="post">
+    <div class="form-group">
+        <label asp-for="Input.Brand"></label>
+        <input asp-for="Input.Brand" class="form-control" />
+        <span asp-validation-for="Input.Brand" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Input.Model"></label>
+        <input asp-for="Input.Model" class="form-control" />
+        <span asp-validation-for="Input.Model" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Input.YearOfProduction"></label>
+        <input asp-for="Input.YearOfProduction" class="form-control" />
+        <span asp-validation-for="Input.YearOfProduction" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Input.CarRegistration"></label>
+        <input asp-for="Input.CarRegistration" class="form-control" />
+        <span asp-validation-for="Input.CarRegistration" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Create</button>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

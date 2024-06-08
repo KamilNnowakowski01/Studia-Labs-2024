@@ -1,0 +1,45 @@
+﻿@page "{id:int}"
+@model Labs2024_WebPages.Pages.Admin.Car.DetailsModel
+
+<h2>Car Details</h2>
+
+<div>
+    <h4>Car</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Car.ID)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Car.ID)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Car.Brand)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Car.Brand)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Car.Model)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Car.Model)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Car.YearOfProduction)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Car.YearOfProduction)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Car.CarRegistration)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Car.CarRegistration)
+        </dd>
+    </dl>
+    <div>
+        <a asp-page="./Edit" asp-route-id="@Model.Car.ID" class="btn btn-primary">Edit</a>
+        <a asp-page="./Index" class="btn btn-secondary">Back to List</a>
+    </div>
+</div>

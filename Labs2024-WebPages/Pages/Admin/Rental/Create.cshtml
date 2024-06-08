@@ -1,0 +1,37 @@
+﻿@page
+@model Labs2024_WebPages.Pages.Admin.Rental.CreateModel
+
+<h2>Create Rental</h2>
+
+<form method="post">
+    <div class="form-group">
+        <label asp-for="Input.IDCar"></label>
+        <input asp-for="Input.IDCar" class="form-control" />
+        <span asp-validation-for="Input.IDCar" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Input.IDUser"></label>
+        <input asp-for="Input.IDUser" class="form-control" />
+        <span asp-validation-for="Input.IDUser" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Input.State"></label>
+        <select asp-for="Input.State" class="form-control" asp-items="Model.RentalStateOptions"></select>
+        <span asp-validation-for="Input.State" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Input.DateStartRental"></label>
+        <input asp-for="Input.DateStartRental" class="form-control" />
+        <span asp-validation-for="Input.DateStartRental" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Input.DateCloseRental"></label>
+        <input asp-for="Input.DateCloseRental" class="form-control" />
+        <span asp-validation-for="Input.DateCloseRental" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Create</button>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

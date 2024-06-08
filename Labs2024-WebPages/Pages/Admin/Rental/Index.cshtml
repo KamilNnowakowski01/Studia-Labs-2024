@@ -1,0 +1,72 @@
+﻿@page
+@using Labs2024_Domain.Models
+@model Labs2024_WebPages.Pages.Admin.Rental.IndexModel
+
+<h2>Rentals</h2>
+
+<p>
+    <a asp-page="./Create" class="btn btn-primary">Create New</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Rentals[0].ID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Rentals[0].IDCar)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Rentals[0].IDUser)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Rentals[0].State)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Rentals[0].DateStartRental)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Rentals[0].DateCloseRental)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Rentals)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IDCar)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IDUser)
+                </td>
+                <td>
+                    @if (item.State == RentalState.Rented)
+                    {
+                        <span class="badge text-bg-success">Rented</span>
+                    }
+                    else if (item.State == RentalState.Returned)
+                    {
+                        <span class="badge text-bg-secondary">Returned</span>
+                    }
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateStartRental)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateCloseRental)
+                </td>
+                <td>
+                    <a asp-page="./Details" asp-route-id="@item.ID" class="btn btn-info">Details</a>
+                    <a asp-page="./Edit" asp-route-id="@item.ID" class="btn btn-primary">Edit</a>
+                    <a asp-page="./Delete" asp-route-id="@item.ID" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

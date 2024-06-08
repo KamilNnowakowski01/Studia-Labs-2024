@@ -1,0 +1,56 @@
+﻿@page
+@model Labs2024_WebPages.Pages.User.ProfileModel
+
+<h2>User Profile</h2>
+
+<div>
+    <h4>User</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.UserDto.ID)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.UserDto.ID)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.UserDto.FirstName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.UserDto.FirstName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.UserDto.LastName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.UserDto.LastName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.UserDto.Email)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.UserDto.Email)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.UserDto.PhoneNumber)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.UserDto.PhoneNumber)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.UserDto.Login)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.UserDto.Login)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.UserDto.Role)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.UserDto.Role)
+        </dd>
+    </dl>
+    <div>
+        <a asp-page="/User/Edit" class="btn btn-primary">Edit</a>
+    </div>
+</div>

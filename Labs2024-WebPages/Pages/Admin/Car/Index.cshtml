@@ -1,0 +1,52 @@
+﻿@page
+@model Labs2024_WebPages.Pages.Admin.Car.IndexModel
+
+<h2>Cars</h2>
+
+<p>
+    <a asp-page="./Create" class="btn btn-primary">Create New</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Cars[0].Brand)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cars[0].Model)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cars[0].YearOfProduction)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cars[0].CarRegistration)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Cars)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Brand)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Model)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.YearOfProduction)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CarRegistration)
+                </td>
+                <td>
+                    <a asp-page="./Details" asp-route-id="@item.ID" class="btn btn-info">Details</a>
+                    <a asp-page="./Edit" asp-route-id="@item.ID" class="btn btn-primary">Edit</a>
+                    <a asp-page="./Delete" asp-route-id="@item.ID" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

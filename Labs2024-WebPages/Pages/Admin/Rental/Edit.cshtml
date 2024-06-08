@@ -1,0 +1,44 @@
+﻿@page "{id:int}"
+@model Labs2024_WebPages.Pages.Admin.Rental.EditModel
+
+<h2>Edit Rental</h2>
+
+<form method="post">
+    <div class="form-group">
+        <label asp-for="Rental.ID"></label>
+        <input asp-for="Rental.ID" class="form-control" disabled />
+        <input type="hidden" asp-for="Rental.ID" />
+        <span asp-validation-for="Rental.ID" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Rental.IDCar"></label>
+        <input asp-for="Rental.IDCar" class="form-control" />
+        <span asp-validation-for="Rental.IDCar" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Rental.IDUser"></label>
+        <input asp-for="Rental.IDUser" class="form-control" />
+        <span asp-validation-for="Rental.IDUser" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Rental.State"></label>
+        <select asp-for="Rental.State" class="form-control" asp-items="Model.RentalStateOptions"></select>
+        <span asp-validation-for="Rental.State" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Rental.DateStartRental"></label>
+        <input asp-for="Rental.DateStartRental" class="form-control" />
+        <span asp-validation-for="Rental.DateStartRental" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Rental.DateCloseRental"></label>
+        <input asp-for="Rental.DateCloseRental" class="form-control" />
+        <span asp-validation-for="Rental.DateCloseRental" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Save</button>
+    <a asp-page="./Index" class="btn btn-secondary">Cancel</a>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

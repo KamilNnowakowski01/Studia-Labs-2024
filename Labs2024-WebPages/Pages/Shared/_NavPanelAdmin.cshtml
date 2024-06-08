@@ -1,0 +1,56 @@
+﻿<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" asp-area="" asp-page="/Index">PanelAdmin</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    UserPanel
+                </a>
+                <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="userDropdown">
+                    <li><a class="dropdown-item" asp-area="" asp-page="/Admin/User/Index">View All Users</a></li>
+                    <li><a class="dropdown-item" asp-area="" asp-page="/Admin/User/Create">Create User</a></li>
+                </ul>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="carDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    CarPanel
+                </a>
+                <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="carDropdown">
+                    <li><a class="dropdown-item" asp-area="" asp-page="/Admin/Car/Index">View All Cars</a></li>
+                    <li><a class="dropdown-item" asp-area="" asp-page="/Admin/Car/Create">Create Car</a></li>
+                </ul>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="rentalDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    RentalPanel
+                </a>
+                <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="rentalDropdown">
+                    <li><a class="dropdown-item" asp-area="" asp-page="/Admin/Rental/Index">View All Rentals</a></li>
+                    <li><a class="dropdown-item" asp-area="" asp-page="/Admin/Rental/Create">Create Rental</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    </div>
+</nav>
+
+<!-- Additional CSS -->
+<style>
+    .dropdown-menu-dark {
+        background-color: #343a40;
+        color: #fff;
+    }
+
+        .dropdown-menu-dark .dropdown-item {
+            color: #fff;
+        }
+
+            .dropdown-menu-dark .dropdown-item:hover {
+                background-color: #495057;
+                color: #fff;
+            }
+</style>

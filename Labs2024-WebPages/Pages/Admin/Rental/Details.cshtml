@@ -1,0 +1,51 @@
+﻿@page "{id:int}"
+@model Labs2024_WebPages.Pages.Admin.Rental.DetailsModel
+
+<h2>Rental Details</h2>
+
+<div>
+    <h4>Rental</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Rental.ID)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Rental.ID)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Rental.IDCar)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Rental.IDCar)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Rental.IDUser)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Rental.IDUser)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Rental.State)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Rental.State)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Rental.DateStartRental)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Rental.DateStartRental)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Rental.DateCloseRental)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Rental.DateCloseRental)
+        </dd>
+    </dl>
+    <div>
+        <a asp-page="./Edit" asp-route-id="@Model.Rental.ID" class="btn btn-primary">Edit</a>
+        <a asp-page="./Index" class="btn btn-secondary">Back to List</a>
+    </div>
+</div>

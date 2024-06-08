@@ -1,0 +1,57 @@
+﻿@page
+@model Labs2024_WebPages.Pages.User.Cars.IndexModel
+@{
+}
+
+<h2>Available Cars</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.AvailableCars[0].Brand)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AvailableCars[0].Model)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AvailableCars[0].YearOfProduction)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AvailableCars[0].CarRegistration)
+            </th>
+            <th>
+                Action
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var car in Model.AvailableCars)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => car.Brand)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => car.Model)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => car.YearOfProduction)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => car.CarRegistration)
+                </td>
+                <td>
+                    <form method="post" asp-page-handler="RentCar">
+                        <input type="hidden" name="carId" value="@car.ID" />
+                        <button type="submit" class="btn btn-primary">Rent</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
