@@ -1,0 +1,74 @@
+### Base URL
+@baseUrl = https://localhost:7238
+
+### AuthController - Register (User)
+POST {{baseUrl}}/api/auth/register
+Content-Type: application/json
+
+{
+  "login": "newUser",
+  "password": "newUser",
+  "firstName": "newUser",
+  "lastName": "newUser",
+  "email": "newUser@mail.com",
+  "phoneNumber": "000888000"
+}
+
+### AuthController - Login (User)
+POST {{baseUrl}}/api/auth/login
+Content-Type: application/json
+
+{
+  "Username": "user",
+  "Password": "user123!"
+}
+
+### Save the JWT Token from the response manually
+# After executing the above login request, copy the token from the response and paste it below.
+
+#@note Manually set the token here:
+#@userToken = <PASTE_YOUR_JWT_TOKEN_HERE>
+@userToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjIiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJVc2VyIiwiZXhwIjoxNzE3OTUzNzY3LCJpc3MiOiJ5b3VyYXBweW91cmFwcHlvdXJhcHAiLCJhdWQiOiJ5b3VyYXBweW91cmFwcHlvdXJhcHAifQ.3FZCJKhk0UuSJsGxHPhdIGce-QpSULYC-XFvEB9VAqw
+
+### Example of setting the token
+# @userToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJS
+
+### CarsController - Get all cars (User)
+GET {{baseUrl}}/api/cars
+Authorization: Bearer {{userToken}}
+
+### CarsController - Get car by ID (User)
+GET {{baseUrl}}/api/cars/1
+Authorization: Bearer {{userToken}}
+
+### RentalsController - Get all rentals (User)
+GET {{baseUrl}}/api/rentals
+Authorization: Bearer {{userToken}}
+
+### RentalsController - Get rental by ID (User)
+GET {{baseUrl}}/api/rentals/2
+Authorization: Bearer {{userToken}}
+
+### RentalsController - Rent a car (User)
+POST {{baseUrl}}/api/rentals/rent
+Content-Type: application/json
+Authorization: Bearer {{userToken}}
+
+{
+  "userId": 2,
+  "carId": 4
+}
+
+### RentalsController - Return a car (User)
+POST {{baseUrl}}/api/rentals/return
+Content-Type: application/json
+Authorization: Bearer {{userToken}}
+
+{
+  "userId": 1,
+  "carId": 1
+}
+
+### RentalsController - Get rented cars (User)
+GET {{baseUrl}}/api/rentals/rent
+Authorization: Bearer {{userToken}}

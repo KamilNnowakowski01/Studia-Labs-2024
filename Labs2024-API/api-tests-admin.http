@@ -1,0 +1,142 @@
+### Base URL
+@baseUrl = https://localhost:7238
+
+
+### AuthController - Login (Admin)
+POST {{baseUrl}}/api/auth/login
+Content-Type: application/json
+
+{
+  "Username": "admin",
+  "Password": "admin123!"
+}
+
+
+### !!! Save JWT Token !!!
+# @note Manually set the token here:
+# @adminToken = <PASTE_YOUR_JWT_TOKEN_HERE>
+@adminToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjEiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbiIsImV4cCI6MTcxNzk0MzIwMCwiaXNzIjoieW91cmFwcHlvdXJhcHB5b3VyYXBwIiwiYXVkIjoieW91cmFwcHlvdXJhcHB5b3VyYXBwIn0.S0TdZF13hiQfDsrRGyTanJ-z84LwzgF9DdcJW2ez3Qw
+
+
+### CarsController - Get all cars (Admin)
+GET {{baseUrl}}/api/cars
+Authorization: Bearer {{adminToken}}
+
+### CarsController - Get car by ID (Admin)
+GET {{baseUrl}}/api/cars/1
+Authorization: Bearer {{adminToken}}
+
+### CarsController - Add a new car (Admin)
+POST {{baseUrl}}/api/cars
+Content-Type: application/json
+Authorization: Bearer {{adminToken}}
+
+{
+  "Brand": "Tesla",
+  "Model": "S",
+  "YearOfProduction": 2023,
+  "CarRegistration": "S3XY1"
+}
+
+### CarsController - Update an existing car (Admin)
+PUT {{baseUrl}}/api/cars/1
+Content-Type: application/json
+Authorization: Bearer {{adminToken}}
+
+{
+  "ID": 1,
+  "Brand": "Toyota",
+  "Model": "Corolla",
+  "YearOfProduction": 2023,
+  "CarRegistration": "321CBA"
+}
+
+### CarsController - Delete a car (Admin)
+DELETE {{baseUrl}}/api/cars/1
+Authorization: Bearer {{adminToken}}
+
+### UsersController - Get all users (Admin)
+GET {{baseUrl}}/api/users
+Authorization: Bearer {{adminToken}}
+
+### UsersController - Get user by ID (Admin)
+GET {{baseUrl}}/api/users/1
+Authorization: Bearer {{adminToken}}
+
+### UsersController - Add a new user (Admin)
+POST {{baseUrl}}/api/users
+Content-Type: application/json
+Authorization: Bearer {{adminToken}}
+
+{
+  "Login": "newuser",
+  "Password": "password123",
+  "FirstName": "New",
+  "LastName": "User",
+  "Email": "newuser@example.com",
+  "PhoneNumber": "987654321",
+  "Role": "User"
+}
+
+### UsersController - Update an existing user (Admin)
+PUT {{baseUrl}}/api/users/3
+Content-Type: application/json
+Authorization: Bearer {{adminToken}}
+
+{
+  "ID": 3,
+  "Login": "updateduser",
+  "FirstName": "Updated",
+  "LastName": "User",
+  "Email": "updateduser@example.com",
+  "PhoneNumber": "987654321",
+  "Role": "User"
+}
+
+### UsersController - Delete a user (Admin)
+DELETE {{baseUrl}}/api/users/3
+Authorization: Bearer {{adminToken}}
+
+### RentalsController - Get all rentals (Admin)
+GET {{baseUrl}}/api/rentals
+Authorization: Bearer {{adminToken}}
+
+### RentalsController - Get rental by ID (Admin)
+GET {{baseUrl}}/api/rentals/4
+Authorization: Bearer {{adminToken}}
+
+### RentalsController - Add a new rental (Admin)
+POST {{baseUrl}}/api/rentals
+Content-Type: application/json
+Authorization: Bearer {{adminToken}}
+
+{
+  "id": 0,
+  "idCar": 4,
+  "idUser": 1,
+  "state": 1,
+  "dateStartRental": "2024-06-09T13:49:57.940Z",
+  "dateCloseRental": null
+}
+
+### RentalsController - Update an existing rental (Admin)
+PUT {{baseUrl}}/api/rentals/1
+Content-Type: application/json
+Authorization: Bearer {{adminToken}}
+
+{
+  "ID": 1,
+  "IDCar": 1,
+  "IDUser": 1,
+  "State": 1,
+  "DateStartRental": "2024-01-01T00:00:00",
+  "DateCloseRental": "2024-01-10T00:00:00"
+}
+
+### RentalsController - Delete a rental (Admin)
+DELETE {{baseUrl}}/api/rentals/1
+Authorization: Bearer {{adminToken}}
+
+### RentalsController - Get rented cars (Admin)
+GET {{baseUrl}}/api/rentals/rent
+Authorization: Bearer {{adminToken}}

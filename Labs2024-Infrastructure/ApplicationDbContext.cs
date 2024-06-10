@@ -24,7 +24,6 @@ namespace Labs2024_Infrastructure
         {
             base.OnModelCreating(modelBuilder);
 
-            // Konfiguracja relacji User-Rental (jeden do wielu)
             modelBuilder.Entity<User>()
                 .HasMany(u => u.Rentals)
                 .WithOne(r => r.User)
@@ -41,6 +40,27 @@ namespace Labs2024_Infrastructure
             modelBuilder.Entity<User>().HasKey(c => c.ID);
             modelBuilder.Entity<Car>().HasKey(c => c.ID);
             modelBuilder.Entity<Rental>().HasKey(c => c.ID);
+
+            // Konfiguracja relacji User-Rental (jeden do wielu)
+            /*
+            modelBuilder.Entity<User>()
+                .HasMany(u => u.Rentals)
+                .WithOne(r => r.User)
+                .HasForeignKey(r => r.IDUser)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            // Konfiguracja relacji Car-Rental (jeden do wielu)
+            modelBuilder.Entity<Car>()
+                .HasMany(c => c.Rentals)
+                .WithOne(r => r.Car)
+                .HasForeignKey(r => r.IDCar)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<User>().HasKey(c => c.ID);
+            modelBuilder.Entity<Car>().HasKey(c => c.ID);
+            modelBuilder.Entity<Rental>().HasKey(c => c.ID);
+            */
+
 
             // Seed data for Users
             modelBuilder.Entity<User>().HasData(

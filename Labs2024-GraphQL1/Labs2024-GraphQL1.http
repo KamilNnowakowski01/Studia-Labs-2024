@@ -1,0 +1,6 @@
+@Labs2024_GraphQL1_HostAddress = http://localhost:5004
+
+GET {{Labs2024_GraphQL1_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

@@ -19,7 +19,7 @@ namespace Labs2024_Domain.Models
         public required string PhoneNumber { get; set; }
         public required string Role { get; set; }
 
-        public ICollection<Rental> Rentals { get; set; }
+        public ICollection<Rental> Rentals { get; set; } = new List<Rental>();
     }
 }
 
